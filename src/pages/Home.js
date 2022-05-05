@@ -50,19 +50,59 @@ return(
      }
      key="2"
    >
-     Fresh New Music
+
+      <h1 className="featuredTitle">
+      New Music for you El!
+    </h1>
+
+
+        <div className="albums">
+          {
+            library.reverse().slice(1,8).map(album => (
+              <Link to="/album" state={album} className="albumSelection">
+                <img  src={album.image}
+                  alt="bull"
+                   style={{width: "250px", marginBottom:"10px"}}
+
+                  />
+                 <p>{album.title}</p>
+              </Link>
+
+            ))
+          }
+        </div>
    </TabPane>
 
    <TabPane
      tab={
        <span>
 
-         PODCASTS
+         HISTORY
        </span>
      }
      key="3"
    >
-     All Podcasts
+
+         <h1 className="featuredTitle">
+         Previously Played
+       </h1>
+
+
+           <div className="albums">
+             {
+               library.reverse().slice(2,9).map(album => (
+                 <Link to="/album" state={album} className="albumSelection">
+                   <img  src={album.image}
+                     alt="bull"
+                      style={{width: "250px", marginBottom:"10px"}}
+
+                     />
+                    <p>{album.title}</p>
+                 </Link>
+
+               ))
+             }
+           </div>
    </TabPane>
  </Tabs>
   </>
